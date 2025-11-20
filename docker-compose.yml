@@ -1,0 +1,34 @@
+version: '3.8'
+
+services:
+  # CONTENEDOR 1: Base de datos (Redis)
+  database:
+    image: redis:alpine
+    container_name: mi-base-datos
+    volumes:
+      - redis-data:/data  # AQUÍ ESTÁ LA PERSISTENCIA
+    networks:
+      - mi-red-interna
+    ports:
+      - "6379:6379"
+
+  # CONTENEDOR 2: Tu imagen personalizada (Ubuntu/Media)
+  app-cliente:
+    build:
+      context: ./docker-images
+      dockerfile: Dockerfile.medio  # USAMOS TU DOCKERFILE ANTERIOR
+    container_name: mi-app-cliente
+    command: tail -f /dev/null      # Truco para que el contenedor no se apague
+    depends_on:                     # AQUÍ ESTÁ LA DEPENDENCIA (No arranca sin la DB)
+      - database
+    networks:
+      - mi-red-interna
+    environment:
+      - DB_HOST=database            # Se conectan por nombre
+
+# Definimos los volúmenes y redes
+volumes:
+  redis-data:
+
+networks:
+  mi-red-interna:
