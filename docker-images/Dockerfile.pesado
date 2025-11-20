@@ -1,0 +1,4 @@
+# IMAGEN PESADA: Node JS
+# Peso aproximado: ~200 MB
+FROM node:lts-slim
+CMD ["echo", "Soy la imagen pesada (Node)"]

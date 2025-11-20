@@ -1,0 +1,4 @@
+# IMAGEN MEDIA: Ubuntu
+# Peso aproximado: 70 MB
+FROM ubuntu:latest
+CMD ["echo", "Soy la imagen media (Ubuntu)"]

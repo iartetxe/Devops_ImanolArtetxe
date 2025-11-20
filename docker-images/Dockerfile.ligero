@@ -1,0 +1,4 @@
+# IMAGEN LIGERA: Alpine Linux
+# Peso aproximado: 5 MB
+FROM alpine:latest
+CMD ["echo", "Soy la imagen ligera (Alpine)"]
