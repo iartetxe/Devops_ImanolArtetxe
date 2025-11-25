@@ -1,3 +1,7 @@
+- Lehen ariketan workflow-a falta zaizu test-ak ejekutatzeko.
+- Bigarrenean feature adarrak bi funtzionalitateekin.
+- Dockerfile eta componse ongi dituzu.
+
 # Devops_ImanolArtetxe
 
 ## 1. Maven eta Java Proiektua
